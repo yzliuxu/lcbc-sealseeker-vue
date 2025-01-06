@@ -13,6 +13,7 @@
               v-model="seekerQuery"
               placeholder="请输入查询内容"
               clearable
+              input-style="font-family: PUAExt, MingLiU, MingLiU-ExtB, FMing-m, FMing-1, FMing-2, FMing-3, FMing-F, FSung-m, FSung-1, FSung-2, FSung-3, FSung-F"
           />
           <el-button type="primary" @click="handleSearch">查询</el-button>
           <el-button type="primary" @click="handleExhaust">拆分</el-button>
@@ -70,7 +71,7 @@
 
 <script>
 import {exhaust} from "@/components/exhaust";
-
+import "@/assets/style/fonts.css"
 export default {
   data() {
     return {
@@ -136,8 +137,12 @@ export default {
   methods: {
     handleExhaust() {
       let result = '';
-      for (let index = 0; index < this.seekerQuery.length; index++) {
-        result += exhaust(this.seekerQuery[index], this.checkList.includes('subdivide'), 0);
+      // for (let index = 0; index < this.seekerQuery.length; index++) {
+      //   result += exhaust(this.seekerQuery[index], this.checkList.includes('subdivide'), 0);
+      // }
+      const char = Array.from(this.seekerQuery);
+      for (let index = 0; index < char.length; index++) {
+        result += exhaust(char[index], this.checkList.includes('subdivide', 0));
       }
       this.seekerQuery = result;
     },
@@ -177,6 +182,7 @@ export default {
   gap: 10px;
   align-items: center;
 }
+
 
 .seeker-options .options-container {
   display: flex;

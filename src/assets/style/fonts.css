@@ -1,0 +1,6 @@
+@font-face {
+    font-family: PUAExt;
+    src: url('@/assets/fonts/PUAExt-Regular.woff2') format("woff2"),
+    url('@/assets/fonts/PUAExt-Regular.woff') format("woff"),
+    url('@/assets/fonts/PUAExt-Regular.ttf') format("truetype");
+}
